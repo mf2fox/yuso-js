@@ -1,5 +1,5 @@
 /*
-varsion: 0.0.2-u.1
+varsion: 0.0.2
 */
 
 class Yuso {
@@ -57,9 +57,7 @@ class Yuso {
                 const res = await this.fileGet(path);
 
                 if ( res.ok ) {
-                    addEventListener("DOMContentLoaded", async () => {
-                        document.getElementById(id).innerHTML = (await res.body.text());
-                    });
+                     document.getElementById(id).innerHTML = (await res.body.text());
                 } else {
                     location.replace(this.notFound);
                 }
@@ -76,9 +74,7 @@ class Yuso {
                 let el = document.createElement("link");
                 el.rel = "stylesheet";
                 el.href = path;
-                addEventListener("DOMContentLoaded", async () => {
-                    document.body.appendChild(el);
-                });
+                document.body.appendChild(el);
             }
         }
 
@@ -91,12 +87,9 @@ class Yuso {
                 // create link element
                 let el = document.createElement("script");
                 el.src = path;
-                addEventListener("DOMContentLoaded", async () => {
-                    document.body.appendChild(el);
-                });
+                document.body.appendChild(el);
             }
-        }
-        /* DOMContentLoadedのイベントを複数設置するのはあまりよくないので、配列に関数を入れてしまうとか、(引数を分けて)したほうがよさそう。 */       
+        }       
     }
 
     route(setPath, setFunction) {
